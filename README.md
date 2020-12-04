@@ -1,1 +1,1 @@
-# tail-based-sampling
+# It's for study only
