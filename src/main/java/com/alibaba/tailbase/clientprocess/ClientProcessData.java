@@ -191,10 +191,17 @@ public class ClientProcessData implements Runnable {
     }
 
     private String getPath(){
+        String islocal = System.getProperty("islocal", "0");
         String port = System.getProperty("server.port", "8080");
         if ("8000".equals(port)) {
+            if("1".equals(islocal)){
+                return "http://localhost:8002/trace1.data";
+            }
             return "http://localhost:" + CommonController.getDataSourcePort() + "/trace1.data";
         } else if ("8001".equals(port)){
+            if("1".equals(islocal)){
+                return "http://localhost:8002/trace2.data";
+            }
             return "http://localhost:" + CommonController.getDataSourcePort() + "/trace2.data";
         } else {
             return null;
